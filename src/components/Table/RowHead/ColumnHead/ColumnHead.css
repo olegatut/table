@@ -1,0 +1,25 @@
+.column_head {
+    position: absolute;
+    border: 1px solid #dbdbdb;
+    background-color: #f8f8f8;
+}
+
+.column_head_fixed {
+    position: sticky;
+    z-index: 2;
+}
+
+.column_head__slider {
+    height: 100%;
+    width: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    transform: translateX(50%);
+    cursor: col-resize;
+}
+
+.column_head_active {
+    border-right: 1px solid green;
+}

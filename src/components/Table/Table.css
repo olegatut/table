@@ -1,0 +1,9 @@
+.root {
+    overflow: auto;
+    border: 1px solid #dbdbdb;
+}
+
+.table {
+    border-collapse: collapse;
+    width: max-content;
+}
