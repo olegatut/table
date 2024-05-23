@@ -1,5 +1,5 @@
 .column_head {
-    position: absolute;
+    position: static;
     border: 1px solid #dbdbdb;
     background-color: #f8f8f8;
 }

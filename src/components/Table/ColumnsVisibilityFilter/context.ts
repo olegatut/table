@@ -16,7 +16,6 @@ const ColumnsVisibilityFilterContext = React.createContext<ContextParams>({
         job_area: true,
         budget_jan: true,
         budget_feb: true,
-        budget_mar: true,
         budget_apr: true,
         budget_may: true,
         budget_jun: true,

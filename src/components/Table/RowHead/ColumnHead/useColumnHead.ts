@@ -14,8 +14,6 @@ interface Params {
 }
 
 interface Return {
-    position: CSSProperties['position'];
-    translateX: number;
     width: number;
     left: number | string;
     right: number | string;
@@ -35,7 +33,7 @@ const useColumnHead: UseColumnHead = ({ columnName }) => {
     const { width, isActive, onMouseDown } = useColumnWidth({ columnName });
     const { fixed, setFixed } = useFixedColumn({ columnName });
     const { left, right } = useColumnLeft({ columnName });
-    const { params: { position, translateX }, mouseDownHandler } = useChangeColumnOrder({ columnName });
+    const { mouseDownHandler } = useChangeColumnOrder({ columnName });
 
     const onLeftPinHandler: PinHandler = useCallback(() => {
         if (fixed === 'left') setFixed(null);
@@ -48,8 +46,6 @@ const useColumnHead: UseColumnHead = ({ columnName }) => {
     }, [fixed, setFixed]);
 
     return {
-        position,
-        translateX,
         width,
         left,
         right,

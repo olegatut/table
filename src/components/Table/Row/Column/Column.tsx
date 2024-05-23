@@ -29,7 +29,7 @@ const columnTypeMap: Record<ColumnType, React.FC<CommonColumnProps>> = {
 const Column: React.FC<Props> = ({ className, alternation, loading, columnConfig, data }) => {
     const { changes, addChange } = useChangeContext({ rowId: data.uuid, columnName: columnConfig.name });
     const { fixed } = useFixedColumn({ columnName: columnConfig.name });
-    const { isActive: isChangingCulumnWidth } = useColumnWidth({ columnName: columnConfig.name });
+    const { isActive: isChangingCulumnWidth, width } = useColumnWidth({ columnName: columnConfig.name });
     const { left, right } = useColumnLeft({ columnName: columnConfig.name });
 
     const ComponentRender = columnTypeMap[columnConfig.type];
@@ -37,7 +37,7 @@ const Column: React.FC<Props> = ({ className, alternation, loading, columnConfig
     return (
         <th
             className={`column_${alternation} ${isChangingCulumnWidth ? 'column_changing_width' : ''} column ${fixed ? 'column_fixed' : ''} ${columnConfig.name} ${className} ${columnConfig.isChanged({ beforeData: data, afterData: changes[0] }) ? 'column_changed': '' }`}
-            style={{ left, right }}
+            style={{ width, left, right }}
         >
             {loading
                 ? 'loading...'

@@ -16,7 +16,6 @@ const FixedColumnContext = React.createContext<ContextParams>({
         job_area: null,
         budget_jan: null,
         budget_feb: null,
-        budget_mar: null,
         budget_apr: null,
         budget_may: null,
         budget_jun: null,

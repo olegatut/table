@@ -1,7 +1,9 @@
 import { useContext } from 'react';
-import { config, ColumnName, ColumnConfig } from './Row/Column';
+import { keyBy } from 'lodash';
+import { config, ColumnConfig } from './Row/Column';
 import { useColumnsVisibilityFilter } from './ColumnsVisibilityFilter';
 import { FixedColumnContext } from './FixedColumns';
+import { useGetColumnOrder } from './ChangeColumnOreder';
 
 interface UseSortedColumns {
     (): Return;
@@ -14,8 +16,10 @@ interface Return {
 const useSortedColumns: UseSortedColumns = () => {
     const { visibilityColumnNames } = useColumnsVisibilityFilter();
     const { fixedColumnNames } = useContext(FixedColumnContext);
+    const { columnNameOrder } = useGetColumnOrder();
 
-    const visibilityColumns = config.filter(({ name }) => visibilityColumnNames[name]);
+    const columnConfigMap = keyBy(config, 'name');
+    const visibilityColumns = columnNameOrder.map((columnName) => columnConfigMap[columnName]).filter(({ name }) => visibilityColumnNames[name]);
 
     const leftVisibilityColumns = visibilityColumns.filter(({ name }) => fixedColumnNames[name] === 'left');
     const rightVisibilityColumns = visibilityColumns.filter(({ name }) => fixedColumnNames[name] === 'rigth');

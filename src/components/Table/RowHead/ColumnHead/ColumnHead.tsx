@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ColumnHead: React.FC<Props> = ({ columnName, title }) => {
-    const { width, position, translateX, left, right, fixed, isActive, onLeftPinHandler, onRightPinHandler, onMouseDown, mouseDownHandler } = useColumnHead({ columnName });
+    const { width, left, right, fixed, isActive, onLeftPinHandler, onRightPinHandler, onMouseDown, mouseDownHandler } = useColumnHead({ columnName });
 
     return (
         <th
@@ -20,10 +20,9 @@ const ColumnHead: React.FC<Props> = ({ columnName, title }) => {
                 width,
                 left,
                 right,
-                position,
-                transform: `translateX(${translateX}px)`,
             }}
             onMouseDown={mouseDownHandler}
+            data-columnName={columnName}
         >
             <div className={'column_head_left_pin'} onClick={onLeftPinHandler}>«</div>
             {title}

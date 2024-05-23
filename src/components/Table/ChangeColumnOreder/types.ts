@@ -1,10 +1,10 @@
 import React from 'react';
 import { type ColumnName } from '../Row/Column';
 
-type ParamsColumnNames = Record<ColumnName, Params>
+type ColumnNameOrder = ColumnName[];
 
-interface SetParamsColumnNames {
-    (visibilityColumnNames: ParamsColumnNames): void;
+interface SetColumnNameOrder {
+    (columnNameOrder: ColumnNameOrder): void;
 }
 
 interface Params {
@@ -15,6 +15,6 @@ interface Params {
 export {
     type Params,
     type ColumnName,
-    type ParamsColumnNames,
-    type SetParamsColumnNames,
+    type ColumnNameOrder,
+    type SetColumnNameOrder,
 }

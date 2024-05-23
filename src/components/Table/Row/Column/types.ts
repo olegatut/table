@@ -31,7 +31,6 @@ type ColumnName =
     'job_area' |
     'budget_jan' |
     'budget_feb' |
-    'budget_mar' |
     'budget_apr' |
     'budget_may' |
     'budget_jun' |
